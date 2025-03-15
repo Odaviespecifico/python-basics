@@ -1,7 +1,7 @@
 # 3)  Faça  um  algoritmo,  em  linguagem  algorítmica,  que  calcule  o  número  de  pontos 
 # acumulados por um time de futebol em um campeonato, dada a quantidade de vitórias e a 
 # quantidade de empates que o time tem até o momento. Considere que uma vitória vale 3 
-# pontos e um empate vale 1 ponto
+# pontos e um empate vale 1 pont
 
 # Passos para resolver esse problema: (Tentem fazer antes de ver a solução [70% do desafio de progamar é descobrir esses passos])
 # 1)  Pegar a quantidade de vitórias e empates que o time tem com input

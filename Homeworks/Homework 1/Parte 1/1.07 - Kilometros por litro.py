@@ -1,0 +1,10 @@
+Kminicial = int(input("Qual é a quilometragem inicial? "))
+Kmfinal = int(input("Qual é a quilometragem final? "))
+litros = int(input("Quantos litros de combustível foram gastos? "))
+preço = float(input("Qual é o preço do combustível? "))
+
+print(f"O carro percorreu {Kmfinal-Kminicial} km")
+print(f"O valor total gasto foi R${litros*preço:.2f} em gasolina")
+print(f"O consumo foi de {litros} litros")
+print(f"O custo por km foi de R${litros*preço/(Kmfinal-Kminicial):.2f}")
+print(f"O carro percorre {Kmfinal-Kminicial/litros} com um litro de gasolina")

@@ -1,0 +1,5 @@
+No python temos os operadores que servem para fazer operações ou analises
+
+temos 5 tipos principais de operadores
+    Aritiméticos (Fazem contas):
+        +, -, *, /, 

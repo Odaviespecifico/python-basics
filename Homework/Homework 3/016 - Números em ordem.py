@@ -26,6 +26,10 @@ else: #Usar else depois de while loop mostra uma mensagem ao final do loop
 #Se fossemos fazer um algorítimo de ordenar lista fariamos:
 #Descobrir se a lista está ordenada
 ordenada = False
+numeros = []
+Qnum = int(input("Quantos números você quer adicionar? "))
+for i in range(Qnum):
+    numeros.append(int(input("Digite o número")))
 while ordenada == False: #Isso é uma forma bem rudimentar do bubble sort
     emordem = numeros
     for i in range(len(numeros)): #Vai subsittuindo um número de cada vez

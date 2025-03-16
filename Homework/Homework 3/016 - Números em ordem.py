@@ -18,7 +18,7 @@ while not(num1 >= num2 >= num3): #Enquanto a lista não estiver em ordem
     if num2 <= num3:
         temporário = num2
         num3 = temporário
-        num3 = num2
+        num2 = temporário
 else: #Usar else depois de while loop mostra uma mensagem ao final do loop
     print(f"Os números ordenados são {num1}, {num2}, {num3}")
     
@@ -33,10 +33,13 @@ for i in range(Qnum):
 while ordenada == False: #Isso é uma forma bem rudimentar do bubble sort
     emordem = numeros
     for i in range(len(numeros)): #Vai subsittuindo um número de cada vez
-        if numeros[i-1] < numeros[i]:
-            temp = numeros[i-1]
-            numeros[i-1] = numeros[i]
-            numeros[i] = temp
+        try:
+            if numeros[i] < numeros[i+1]:
+                temp = numeros[i-1]
+                numeros[i-1] = numeros[i]
+                numeros[i] = temp
+        except IndexError:
+            pass
     if emordem == numeros: #Verifica se está ordenada. Se o ultimo passo deu o mesmo resultado 2 vezes signfica que está ordenada
         print("Está ordenada")
         print(f"A lista ordenada é {numeros}")

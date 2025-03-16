@@ -29,17 +29,17 @@ ordenada = False
 numeros = []
 Qnum = int(input("Quantos números você quer adicionar? "))
 for i in range(Qnum):
-    numeros.append(int(input("Digite o número")))
+    numeros.append(int(input("Digite o número: ")))
 while ordenada == False: #Isso é uma forma bem rudimentar do bubble sort
     emordem = numeros
-    for i in range(len(numeros)): #Vai subsittuindo um número de cada vez
+    for i in range(1, len(numeros)+1): #Vai subsittuindo um número de cada vez
         try:
             if numeros[i] < numeros[i+1]:
                 temp = numeros[i-1]
                 numeros[i-1] = numeros[i]
                 numeros[i] = temp
         except IndexError:
-            pass
+            print("Lista finalizada")
     if emordem == numeros: #Verifica se está ordenada. Se o ultimo passo deu o mesmo resultado 2 vezes signfica que está ordenada
         print("Está ordenada")
         print(f"A lista ordenada é {numeros}")

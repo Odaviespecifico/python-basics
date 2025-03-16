@@ -6,8 +6,8 @@ numeros = []
 numeros = [3,5,6,7,3,4,5,2,1,6,3,7]
 Qnum = len(numeros)
 while ordenada == False: #Isso é uma forma bem rudimentar do bubble sort
-    emordem = numeros
     for i in range(0, len(numeros)+1): #Vai subsittuindo um número de cada vez
+        emordem = numeros
         try:
             if numeros[i] < numeros[i+1]:
                 temp = numeros[i+1]

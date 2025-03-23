@@ -8,30 +8,42 @@
 i = 0
 contatos = []
 
+def titulo(msg):
+    print('='*len(msg))
+    print(msg)
+    print('='*len(msg))
+
 def ler():
-    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.txt','r') as agenda: 
+    global contatos
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','r',encoding='UTF-8') as agenda: 
+        i = 0
+        contatos = []
         for linha in agenda.readlines():
-            contatos.append(eval(linha.strip()))
+            contato = linha.split(";")
+            contatos.append(dict({'Nome': contato[0], 'Telefone': contato[1], 'Email': contato[2]})) 
 def adicionar():
+    titulo("Adicionar contato:")
     nome = input('Digite o nome do contato: ').strip()
     telefone = input('Digite o telefone do contato: ').strip()
     email = input('Digite o email do contato: ').strip()
-    ncontato = (f"'nome:'{nome},'telefone:'{telefone},'email:'{email}")
-    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.txt','a') as agenda: 
-        agenda.write(ncontato)
+    ncontato = (f"{nome};{telefone};{email}")
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','a', encoding="UTF=8") as agenda: 
+        agenda.write(str("\n" + ncontato))
+    listar()
 def alterar():
     pass
 def apagar():
     pass
 def listar():
-    print('=======================')
-    print('Contatos na sua agenda:')
-    print('=======================')
+    global contatos
+    ler()
+    titulo('Contatos na sua agenda:')
+    i = 0
+    print(contatos)
     for i in range(len(contatos)):
         print(f"Contato {i+1}:")
         for k,v in contatos[i].items():
             print(f"{k}: {v}")
-        print('\n')
-            
+
 listar()
 adicionar()

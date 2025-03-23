@@ -13,7 +13,12 @@ def ler():
         for linha in agenda.readlines():
             contatos.append(eval(linha.strip()))
 def adicionar():
-    pass
+    nome = input('Digite o nome do contato: ').strip()
+    telefone = input('Digite o telefone do contato: ').strip()
+    email = input('Digite o email do contato: ').strip()
+    ncontato = (f"'nome:'{nome},'telefone:'{telefone},'email:'{email}")
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.txt','a') as agenda: 
+        agenda.write(ncontato)
 def alterar():
     pass
 def apagar():
@@ -29,3 +34,4 @@ def listar():
         print('\n')
             
 listar()
+adicionar()

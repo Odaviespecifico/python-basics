@@ -1,11 +1,3 @@
-#Agenda eletrônico
-#Ler
-#adicionar
-#Alterar
-#apgar
-#Listar os dados da agenda
-#Deve contar o nome telefone email dos contatos
-i = 0
 contatos = []
 
 def titulo(msg):
@@ -29,18 +21,19 @@ def adicionar():
     email = input('Digite o email do contato: ').strip()
     ncontato = (f"{nome};{telefone};{email}")
     with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','a', encoding="UTF=8") as agenda: 
-        agenda.write(str("\n" + ncontato))
+        agenda.write(str(ncontato))
     listar()
 
 def alterar():
     global contatos
+    ler()
     titulo("Alterar contato:")
     num = int(input('Digite o contato que deseja alterar: '))
     contatinho = contatos[num-1]
     print(f"Alterando o contato de {contatinho['Nome']}")
     contatinho["Nome"] = input('Digite o nome do contato: ').strip()
     contatinho["Telefone"] = input('Digite o telefone do contato: ').strip()
-    contatinho["Email"] = input('Digite o email do contato: ').strip()
+    contatinho["Email"] = str(input('Digite o email do contato: ')+"\r")
     with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','w', encoding="UTF=8") as agenda:
         for linha in range(len(contatos)):
             line = contatos[linha]["Nome"] + ";" + contatos[linha]["Telefone"] + ";" + contatos[linha]["Email"]
@@ -51,7 +44,6 @@ def apagar():
     global contatos
     num = int(input('Digite o número do contato que deseja apagar: '))
     nome = contatos[num-1]['Nome']
-    print(contatos)
     contatos.pop(num-1)
     with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','w', encoding="UTF=8") as agenda:
         for linha in range(len(contatos)):

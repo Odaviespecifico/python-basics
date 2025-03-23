@@ -21,6 +21,7 @@ def ler():
         for linha in agenda.readlines():
             contato = linha.split(";")
             contatos.append(dict({'Nome': contato[0], 'Telefone': contato[1], 'Email': contato[2]})) 
+            
 def adicionar():
     titulo("Adicionar contato:")
     nome = input('Digite o nome do contato: ').strip()
@@ -30,20 +31,66 @@ def adicionar():
     with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','a', encoding="UTF=8") as agenda: 
         agenda.write(str("\n" + ncontato))
     listar()
+
 def alterar():
-    pass
+    global contatos
+    titulo("Alterar contato:")
+    num = int(input('Digite o contato que deseja alterar: '))
+    contatinho = contatos[num-1]
+    print(f"Alterando o contato de {contatinho['Nome']}")
+    contatinho["Nome"] = input('Digite o nome do contato: ').strip()
+    contatinho["Telefone"] = input('Digite o telefone do contato: ').strip()
+    contatinho["Email"] = input('Digite o email do contato: ').strip()
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','w', encoding="UTF=8") as agenda:
+        for linha in range(len(contatos)):
+            line = contatos[linha]["Nome"] + ";" + contatos[linha]["Telefone"] + ";" + contatos[linha]["Email"]
+            agenda.write(line)
+    listar()
+     
 def apagar():
-    pass
+    global contatos
+    num = int(input('Digite o número do contato que deseja apagar: '))
+    nome = contatos[num-1]['Nome']
+    print(contatos)
+    contatos.pop(num-1)
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.csv','w', encoding="UTF=8") as agenda:
+        for linha in range(len(contatos)):
+            line = contatos[linha]["Nome"] + ";" + contatos[linha]["Telefone"] + ";" + contatos[linha]["Email"]
+            agenda.write(line)
+    print(f"Contato de {nome} apagado com sucesso!")
+    listar()
+
 def listar():
     global contatos
     ler()
     titulo('Contatos na sua agenda:')
     i = 0
-    print(contatos)
     for i in range(len(contatos)):
         print(f"Contato {i+1}:")
         for k,v in contatos[i].items():
             print(f"{k}: {v}")
 
-listar()
-adicionar()
+while True:
+    try:
+        titulo("Agenda Eletrônica")
+        print("1 - Listar contatos")
+        print("2 - Alterar contato")
+        print("3 - Apagar contato")
+        print("4 - Adicionar contato")
+        print("5 - Sair")
+        op = int(input("Digite a opção desejada: "))
+        if op == 1:
+            listar()
+        elif op == 2:
+            alterar()
+        elif op == 3:
+            apagar()
+        elif op == 4:
+            adicionar()
+        elif op == 5:
+            break
+        else:
+            print("Opção inválida!")
+    except ValueError:
+        print("Opção inválida!")
+        

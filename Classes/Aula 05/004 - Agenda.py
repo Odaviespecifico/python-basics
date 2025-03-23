@@ -12,7 +12,6 @@ def ler():
     with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.txt','r') as agenda: 
         for linha in agenda.readlines():
             contatos.append(eval(linha.strip()))
-
 def adicionar():
     pass
 def alterar():

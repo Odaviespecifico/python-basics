@@ -7,14 +7,12 @@
 #Deve contar o nome telefone email dos contatos
 i = 0
 contatos = []
-with open('contatos.txt','r') as agenda: 
-    for linha in agenda.readlines():
-        contatos.append(linha.strip())
-        
-print(contatos[0])
-print(contatos)
+
 def ler():
-    pass
+    with open(r'C:\Users\Davi\Documents\Progamação\python-basics\Classes\Aula 05\contatos.txt','r') as agenda: 
+        for linha in agenda.readlines():
+            contatos.append(eval(linha.strip()))
+
 def adicionar():
     pass
 def alterar():
@@ -22,7 +20,9 @@ def alterar():
 def apagar():
     pass
 def listar():
+    print('=======================')
     print('Contatos na sua agenda:')
+    print('=======================')
     for i in range(len(contatos)):
         print(f"Contato {i+1}:")
         for k,v in contatos[i].items():

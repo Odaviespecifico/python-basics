@@ -23,7 +23,7 @@ if num2 == 0:
     print("O segundo número não pode ser 0")
     exit() #Termina o progama. Alternativamente você pode fazer um while loop aqui
 #5 e 6)
-if divisivel(num1,num2) == True: #Se for divisível
+if divisivel(num1,num2) == True: #Se for divisível #Rodei a função aqui e enviei os 2 números necessários
     print(f"O número {num1} é divisível por {num2}")
 else:
     print(f"O número {num1} não é divisível por {num2}")
